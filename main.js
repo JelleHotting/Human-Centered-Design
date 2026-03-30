@@ -27,8 +27,8 @@ form.addEventListener("submit", (event) => {
   newNote.innerHTML = `
     <h2 id="${noteId}">${titleValue}</h2>
     <div class="note-meta">
-        <p><span class="sr-only">Auteur: </span>${author}</p>
-        <p>Pagina ${page}</p>
+        <p><span class="sr-only">Auteur: </span>${authorValue}</p>
+        <p>Pagina ${pageValue}</p>
     </div>
     <p>${noteContentValue}</p>
     <footer>
