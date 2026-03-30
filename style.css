@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: var(--on-surface);
+  padding: 8px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:root {
+  /* --- Phase 1: Core Color Tokens --- */
+  --primary: #f0ff00; /* Electric Sulfur: High-intent actions & focus */
+  --surface: #f9f9f7; /* Bone White: Default reading canvas */
+  --on-surface: #0a0a0a; /* Deep Onyx: Primary text & structural icons */
+
+  /* --- Phase 3: Typography Scale --- */
+  --font-display: "Newsreader", serif;
+  --font-body: "Lexend", sans-serif;
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1rem;
+  border-bottom: 1px solid var(--on-surface);
+  width: 100%;
+  text-align: center;
+}
+
+/* --- Base Reset & Aesthetics --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 0 !important; /* The "Zero-Softness" Mandate */
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Typographic System --- */
+h1,
+h2,
+h3,
+.display-text {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em; /* Tight letter-spacing for Headlines */
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Align contents to the top */
+  justify-content: center;
+  height: 100dvh;
+  gap: 4em; /* Spacing between notes and form */
+  padding: 4em 0;
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Spacing between each article */
+  max-height: calc(100dvh - 8rem); /* Subtract padding of main */
+  overflow-y: auto;
+  padding-right: 1.5rem; /* Space to prevent scrollbar overlapping content */
+  scrollbar-width: thin;
+  scrollbar-color: var(--on-surface) transparent;
+}
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+.notes-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notes-container::-webkit-scrollbar-thumb {
+  background-color: var(--on-surface);
+}
+
+.form-section {
+  position: sticky;
+  top: 4em;
+}
+
+article {
+  border: 1px solid var(--on-surface);
+  padding: 4em;
+  background: white;
+  max-width: 45em;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.note h2 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.note-meta {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.note-meta p:not(:last-child)::after {
+  content: "|";
+  margin-left: 1rem;
+  opacity: 0.3;
+}
+
+.note p:not(.note-meta p) {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.note footer {
+  margin-top: 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1em;
+}
+
+.note footer time {
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  opacity: 0.5;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.input-container {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.input-container .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+textarea {
+  width: 30em;
+  height: 10em;
+  min-height: 2em;
+  padding: 0.5em;
+  font-family: var(--font-body);
+  border: 1px solid var(--on-surface);
+  background: transparent;
+  color: var(--on-surface);
+  resize: vertical;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  width: 100%;
+  padding: 0.5em;
+  font-family: var(--font-body);
+  border: 1px solid var(--on-surface);
+  background: transparent;
+  color: var(--on-surface);
+}
+
+button {
+  background: var(--primary);
+  color: var(--on-surface);
+  border: 1px solid var(--on-surface);
+  padding: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: var(--on-surface);
+  color: var(--primary);
+}
+
+/* --- Accessibility Utilities --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

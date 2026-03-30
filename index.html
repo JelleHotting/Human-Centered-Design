@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socrates</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header></header>
+
+    <main id="main-content">
+      <section class="notes-container" aria-labelledby="notes-title">
+        <h2 id="notes-title" class="sr-only">Opgeslagen notities</h2>
+        <article class="note" aria-labelledby="note-title-1">
+          <h2 id="note-title-1">Dolfje Weerwolfje</h2>
+          <div class="note-meta">
+            <p><span class="sr-only">Auteur: </span>Paul van Loon</p>
+            <p>Pagina 123</p>
+          </div>
+          <p>Dit is de tekst van mijn opgeslagen notitie.</p>
+          <footer>
+            <time datetime="2024-03-20">
+              <span class="sr-only">Notitie gemaakt op: </span>20 maart 2024
+            </time>
+          </footer>
+        </article>
+
+       
+      </section>
+
+      <section class="form-section">
+        <h2 id="form-title">Nieuwe notitie toevoegen</h2>
+        <form class="input-container">
+          <fieldset class="input-wrapper">
+            <legend class="sr-only">Informatie voor nieuwe notitie</legend>
+            <div class="input-field">
+              <label for="title">Titel</label>
+              <input type="text" id="title" required aria-required="true" />
+            </div>
+            <div class="input-field">
+              <label for="author">Auteur</label>
+              <input type="text" id="author" />
+            </div>
+            <div class="input-field">
+              <label for="page">Pagina</label>
+              <input type="number" id="page" />
+            </div>
+            <div class="input-field">
+              <label for="note">Notitie</label>
+              <textarea id="note" required aria-required="true"></textarea>
+            </div>
+            <div class="input-field">
+              <label for="date">Datum</label>
+              <input
+              required
+              value="2026-03-30"
+              type="date" id="date" />
+            </div>
+          </fieldset>
+          <button id="submit" type="submit">Opslaan</button>
+        </form>
+      </section>
+    </main>
+
+    <footer></footer>
+    <script src="main.js"></script>
+  </body>
+</html>
