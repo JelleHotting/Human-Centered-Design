@@ -10,7 +10,6 @@ form.addEventListener("submit", (event) => {
   const noteContentValue = document.getElementById("note").value;
   const dateValue = document.getElementById("date").value;
 
-
   const timestamp = Date.now();
   const noteId = `note-title-${timestamp}`;
 
@@ -18,11 +17,18 @@ form.addEventListener("submit", (event) => {
   newNote.classList.add("note");
   newNote.setAttribute("aria-labelledby", noteId);
 
-  
-  const displayDate = dateValue 
-    ? new Date(dateValue).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
-    : new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
-  const attrDate = dateValue || new Date().toISOString().split('T')[0];
+  const displayDate = dateValue
+    ? new Date(dateValue).toLocaleDateString("nl-NL", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : new Date().toLocaleDateString("nl-NL", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+  const attrDate = dateValue || new Date().toISOString().split("T")[0];
 
   newNote.innerHTML = `
     <h2 id="${noteId}">${titleValue}</h2>
@@ -41,6 +47,6 @@ form.addEventListener("submit", (event) => {
   notesContainer.prepend(newNote);
 
   form.reset();
-  
+
   document.getElementById("title").focus();
 });

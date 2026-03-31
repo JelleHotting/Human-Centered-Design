@@ -20,6 +20,37 @@ html {
 
 .skip-link:focus {
   top: 0;
+  outline: 3px solid var(--on-surface);
+  outline-offset: 4px;
+}
+
+/* --- Focus States & Accessibility --- */
+:focus {
+  outline: none; /* Remove default browser outline */
+}
+
+:focus-visible {
+  outline: 3px solid var(--on-surface);
+  outline-offset: 4px;
+  transition: outline-offset 0.15s ease-out;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--on-surface);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--on-surface);
+  outline-offset: 4px;
+  background: var(--on-surface);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
 }
 
 :root {
@@ -82,24 +113,6 @@ main {
   margin: 0 auto;
 }
 
-@media (max-width: 1000px) {
-  main {
-    flex-direction: column-reverse;
-    align-items: stretch;
-    height: auto;
-    padding: 2em 1rem;
-  }
-  
-  .form-section {
-    position: static;
-    margin-bottom: 3rem;
-  }
-  
-  .notes-container {
-    max-height: none;
-    overflow-y: visible;
-  }
-}
 
 .notes-container {
   display: flex;
@@ -107,11 +120,6 @@ main {
   gap: 2rem;
   max-width: 45em;
   width: 100%;
-  max-height: calc(100vh - 8rem);
-  overflow-y: auto;
-  padding-right: 1.5rem;
-  scrollbar-width: thin;
-  scrollbar-color: var(--on-surface) transparent;
 }
 
 /* Custom scrollbar for Webkit browsers (Chrome, Safari, etc.) */
@@ -211,7 +219,8 @@ fieldset {
 }
 
 textarea {
-  width: 30em;
+  width: 100%;
+  max-width: 30em;
   height: 10em;
   min-height: 2em;
   padding: 0.5em;
@@ -249,6 +258,7 @@ button:hover {
 }
 
 /* --- Accessibility Utilities --- */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -259,4 +269,38 @@ button:hover {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .form-section {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .notes-container {
+    padding-right: 0;
+  }
+
+  article {
+    padding: 2rem;
+  }
+
+  .note h2 {
+    font-size: 2rem;
+  }
+
+  .note p:not(.note-meta p) {
+    font-size: 1.2rem;
+  }
+
+  textarea {
+    width: 100%;
+  }
 }

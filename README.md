@@ -3,7 +3,6 @@
 > [!WARNING]
 > Dit project is gemaakt voor een (half) blind persoon, de opdracht was om het alleen werkend te krijgen voor specifiek diegene.
 
-
 ## Leerdoelen bij deze opdracht
 
 - [Leerdoel 1]
@@ -33,11 +32,25 @@
 * Als een date picker dd/mm/jjjj invoert, wordt er een percentage opgelezen, ik heb dit opgelost door de date picker input te veranderen naar de datum van vandaag
 * Hoe je een website toegankelijk kan maken voor een screenreader door middel van een sr-only class met styling
 
+![Foto van dag 1](readmeImages/dag1.png)
+
 #### Wat ga ik morgen doen?
 - [ ] Testen met de gebruiker
 - [ ] Aanpassingen doen op basis van feedback
 
 ### Dag 2
+
+#### Testplan
+
+| Stap | Wat ik Roger laat doen | Waar ik op ga letten (Pijnpunten) |
+| :--- | :--- | :--- |
+| **1. Invoeren** | Ik laat hem een korte notitie toevoegen. | Worden alle velden (zoals 'Pagina' en 'Datum') duidelijk voor hem gelabeld en voorgelezen? |
+| **2. Opslaan** | Ik vraag hem op 'Opslaan' te drukken. | Krijgt hij feedback van de screenreader? Weet hij dat het gelukt is als de focus terugspringt? |
+| **3. Terugvinden** | Ik laat hem de notitie in de lijst zoeken. | Kan hij navigeren via koppen (`H`)? Wordt metadata logisch voor hem voorgelezen? |
+
+#### Testresultaten
+
+
 
 #### Wat heb ik gedaan vandaag?
 
