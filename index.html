@@ -3,62 +3,127 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Socrates</title>
+    <title>Socrates — Lezen & Noteren</title>
+    <meta name="description" content="Lees een tekst en maak aantekeningen per alinea." />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header></header>
 
     <main id="main-content">
-      <section class="notes-container" aria-labelledby="notes-title">
-        <h2 id="notes-title" class="sr-only">Opgeslagen notities</h2>
-        <article class="note" aria-labelledby="note-title-1">
-          <h2 id="note-title-1">Dolfje Weerwolfje</h2>
-          <div class="note-meta">
-            <p><span class="sr-only">Auteur: </span>Paul van Loon</p>
-            <p>Pagina 123</p>
-          </div>
-          <p>Dit is de tekst van mijn opgeslagen notitie.</p>
-          <footer>
-            <time datetime="2024-03-20">
-              <span class="sr-only">Notitie gemaakt op: </span>20 maart 2024
-            </time>
-          </footer>
-        </article>
+      <div class="sr-only" id="sr-instructions">
+        <h2>Instructies en Sneltoetsen</h2>
+        <p>Welkom. Gebruik de volgende sneltoetsen: Tab om tussen alinea's te navigeren, Enter om een notitie te maken, N om opgeslagen notities te bekijken, en Escape om terug te gaan naar de tekst.</p>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════
+           LEFT COLUMN — Reading pane
+      ═══════════════════════════════════════════════ -->
+      <section class="reading-pane" aria-labelledby="reading-title">
+        <header class="book-header">
+          <h1 id="reading-title" class="book-title">De Nacht van de Vuurtoren</h1>
+          <p class="book-meta">
+            <span class="sr-only">Auteur: </span>E. van der Meer
+            <span aria-hidden="true" class="meta-sep">·</span>
+            <span class="sr-only">Hoofdstuk: </span>Hoofdstuk 3
+          </p>
+        </header>
+
+        <ol class="paragraphs-list" aria-label="Alinea's van de tekst">
+
+          <li class="paragraph-item" tabindex="0" id="para-1" aria-label="Alinea 1">
+            <span class="para-number" aria-hidden="true">1</span>
+            <p>
+              De vuurtoren stond als een stille wachter aan het einde van de pier. Zijn witte muur vertoonde scheuren die jaren van zoute wind en regen hadden achtergelaten. Elke avond, precies bij zonsondergang, begon het licht te draaien — een gewoonte die de vuurtorenwachter, oude Harm, nooit had doorbroken in zijn dertig dienstjaren.
+            </p>
+          </li>
+
+          <li class="paragraph-item" tabindex="0" id="para-2" aria-label="Alinea 2">
+            <span class="para-number" aria-hidden="true">2</span>
+            <p>
+              Die bewuste nacht was de hemel bijzonder helder. Harm stond op de galerij en tuurde door zijn verrekijker naar de horizon. In de verte zag hij de lichten van een schip dat gevaarlijk dicht bij de rotsen koerste. Hij greep de scheepsbel en sloeg drie keer, het noodsignaal dat zijn vader hem had geleerd.
+            </p>
+          </li>
+
+          <li class="paragraph-item" tabindex="0" id="para-3" aria-label="Alinea 3">
+            <span class="para-number" aria-hidden="true">3</span>
+            <p>
+              Beneden hoorde hij voetstappen op de spiraalvormige trap. Het was zijn kleindochter Mila, twaalf jaar oud en vastbesloten om elke vakantie bij opa op de vuurtoren door te brengen. Ze had haar rode regenjas aan en een schrift onder haar arm. "Opa, ik hoorde de bel," fluisterde ze. "Is er gevaar?"
+            </p>
+          </li>
+
+          <li class="paragraph-item" tabindex="0" id="para-4" aria-label="Alinea 4">
+            <span class="para-number" aria-hidden="true">4</span>
+            <p>
+              Harm knikte en gaf haar de verrekijker. Mila zette het toestel voor haar ogen en zocht de horizon af. Het schip had van koers veranderd — net op tijd. Ze zuchtte van opluchting. "Ze hebben het gezien," zei ze. Harm legde zijn hand op haar schouder en glimlachte voor het eerst die dag.
+            </p>
+          </li>
+
+          <li class="paragraph-item" tabindex="0" id="para-5" aria-label="Alinea 5">
+            <span class="para-number" aria-hidden="true">5</span>
+            <p>
+              Later, bij het vuur binnen, schreef Mila alles op in haar schrift. Ze beschreef de kleur van de zee, de geur van teer en zout, de manier waarop het licht rondjes draaide in de nacht. Ze wist dat ze deze avond nooit zou vergeten — de avond waarop een vuurtoren een schip redde, en een kleindochter haar roeping vond.
+            </p>
+          </li>
+
+        </ol>
+
+        <p class="reading-hint"  id="reading-hint">
+          <kbd>Tab</kbd> navigeren · <kbd>Enter</kbd> notitie maken · <kbd>n</kbd> naar notities
+        </p>
       </section>
 
-      <section class="form-section">
-        <h2 id="form-title">Nieuwe notitie toevoegen</h2>
-        <form class="input-container">
-          <fieldset class="input-wrapper">
-            <legend class="sr-only">Informatie voor nieuwe notitie</legend>
-            <div class="input-field">
-              <label for="title">Titel</label>
-              <input type="text" id="title" required aria-required="true" />
+      <aside class="apparatus-zone">
+        <!-- ═══════════════════════════════════════════════
+             MIDDLE — Saved notes
+        ═══════════════════════════════════════════════ -->
+        <section class="notes-container" aria-labelledby="notes-title" aria-live="polite">
+          <div class="notes-header-wrapper">
+            <h2 id="notes-title" tabindex="-1">Mijn notities</h2>
+            <p class="notes-hint" aria-hidden="true"><kbd>Esc</kbd> terug naar tekst</p>
+          </div>
+          <p class="notes-empty" id="notes-empty">Nog geen notities. Lees een alinea en druk op Enter om te beginnen.</p>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════
+             RIGHT COLUMN — Note form
+        ═══════════════════════════════════════════════ -->
+        <section class="form-section" aria-labelledby="form-title">
+          <h2 id="form-title">Nieuwe notitie</h2>
+          <p class="active-para-label" id="active-para-label" aria-live="polite">
+            Geen alinea geselecteerd
+          </p>
+
+          <form class="input-container" id="note-form" novalidate>
+            <fieldset class="input-wrapper">
+              <legend class="sr-only">Notitie informatie</legend>
+
+              <div class="input-field">
+                <label for="note">Jouw aantekening</label>
+                <textarea
+                  id="note"
+                  name="note"
+                  required
+                  aria-required="true"
+                  placeholder="Schrijf hier je gedachten…"
+                ></textarea>
+              </div>
+
+            </fieldset>
+
+            <div class="form-actions">
+              <button id="submit" type="submit">Opslaan</button>
+              <button id="cancel-note" type="button" class="btn-secondary" aria-label="Terug naar tekst">Tekst (<kbd>Esc</kbd>)</button>
+              <button id="go-to-notes" type="button" class="btn-secondary" aria-label="Naar notities">Notities (<kbd>n</kbd>)</button>
             </div>
-            <div class="input-field">
-              <label for="author">Auteur</label>
-              <input type="text" id="author" />
-            </div>
-            <div class="input-field">
-              <label for="page">Pagina</label>
-              <input type="number" id="page" value="1" min="1" />
-            </div>
-            <div class="input-field">
-              <label for="note">Notitie</label>
-              <textarea id="note" required aria-required="true"></textarea>
-            </div>
-            <div class="input-field">
-              <label for="date">Datum</label>
-              <input type="date" id="date" value="2026-03-30" required />
-            </div>
-          </fieldset>
-          <button id="submit" type="submit">Opslaan</button>
-        </form>
-      </section>
+          </form>
+        </section>
+      </aside>
+
     </main>
 
-    <footer></footer>
-    <script src="main.js"></script>
+
+    <div id="sr-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="main.js"></script>
   </body>
 </html>

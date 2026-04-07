@@ -35,7 +35,7 @@
 ![Foto van dag 1](readmeImages/dag1.png)
 
 #### Wat ga ik morgen doen?
-- [ ] Testen met de gebruiker
+- [x] Testen met de gebruiker
 - [ ] Aanpassingen doen op basis van feedback
 
 ### Dag 2
@@ -51,28 +51,42 @@
 #### Testresultaten
 
 
+- 📖 Geen idee welke pagina die zit in een boek.
+- 🌓 Prefereert dark mode
+- 🎙️ Notities opnemen vond niet iedereen goed in een vergadering
+- 💬 Whatsapp doet ie veel met spraak, (TTS). Stotteren hierbij is wel moeilijk
+- ✅ Soms is de WCAG checklist niet voldoende
+- 📄 Wilt liever iets in word dan een aparte website
+- 💻 Wilt aantekeningen alleen op desktop maken
+- 🖥️ NVDA en Supernova op desktop
+- 📚 Aantekeningen per boek geordend
+- ⌨️ Keybinds zijn goed maar moeten super duidelijk beschreven worden
+- 🔍 Hoe kan je zoeken naar ee nbepaalde opmerking
+- 🎤 Lezen is geen optie, echt met voiceover
 
 #### Wat heb ik gedaan vandaag?
 
 | Activiteit | Duur |
 |------------|------|
-| [Activiteit] | [Tijd] |
+| Testen met Roger | 2 uur |
+| Voorlichting stage | 2 uur |
+| Weekly geek | 1,5 uur |
 
 #### Wat heb ik geleerd?
 
-* [Leerpunt 1]
+* 
 
 #### Wat ga ik morgen doen?
-- [ ] [Plan]
+- [x] API
 
 ### Week 1 recap
 
 #### Wat heb ik deze week gedaan?
-[Korte samenvatting van de week]
+Ik heb de basis gemaakt voor de website met basisfunctionaliteit voor een notitie opslaan, voor de rest heb ik kennis gemaakt met Roger en geleerd hoe hij omgaat met het web
 
 #### Belangrijkste leerpunten
-* [Punt 1]
-* [Punt 2]
+* Hij is niet helemaal blind
+* Prefereert dark mode
 
 ---
 
