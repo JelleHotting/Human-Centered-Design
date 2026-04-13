@@ -98,28 +98,39 @@ Ik heb de basis gemaakt voor de website met basisfunctionaliteit voor een notiti
 
 | Activiteit | Duur |
 |------------|------|
-| [Activiteit] | [Tijd] |
+| Getest met Roger | 2 uur |
+| Weekly Geek | 1 uur |
+| Verbeteringen gemaakt | 5 uur |
+
+![Foto van dag 2](readmeImages/dag2.png)
 
 #### Wat heb ik geleerd?
 
-* [Leerpunt]
+* Roger vindt mijn prototype geweldig
 
 #### Wat ga ik morgen doen?
-- [ ] [Plan]
+- [ ] API
 
-### Dag 2
+#### Testresultaten
 
-#### Wat heb ik geleerd?
+- 📖 Geen apart lettertype
+- ⌨️ Tabben per alinea is goed
+- 🖊️ Moet notitie kunnen bewerken
+- 📌 Markering toevoegen per alinea waar een annotatie bij hoort
+- ⏭️ Na het maken van een notitie bij een stukje tekst door naar het volgende stuk tekstx§
 
-* [Leerpunt]
 
 ### Week 2 recap
 
 #### Wat heb ik deze week gedaan?
-[Korte samenvatting van de week]
+Je kan nu per alinea tabben naar verschillende stukken tekst, dan kan je met enter een notitie maken bij een alinea. Deze notitie wordt dan opgeslagen en je kan deze later terugvinden in de notities sectie. Ook heb ik de website dark mode gemaakt en een aparte lettertype toegevoegd.
+
+![Foto van dag 2](readmeImages/dag2.png)
+
+Bij de feedback van vrijdag heb ik te horen gekregen dat de website meer persoonlijk kan, de reden dat hij soms over belangrijke elementen skipt is omdat het altijd gewoon dezelfde voiceover stem is die dezelfde saaie tekst vertelt.
 
 #### Belangrijkste leerpunten
-* [Punt]
+* Tabben per alinea werkt fantastisch
 
 ---
 
