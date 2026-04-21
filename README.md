@@ -6,12 +6,12 @@
 ## Leerdoelen bij deze opdracht
 
 - [Leerdoel 1]
-    - [Beschrijving van wat je wilt leren en bouwen]
-    - *Reden: [Waarom is dit belangrijk voor je ontwikkeling?]*
+  - [Beschrijving van wat je wilt leren en bouwen]
+  - _Reden: [Waarom is dit belangrijk voor je ontwikkeling?]_
 
 - [Leerdoel 2]
-    - [Beschrijving van wat je wilt leren en bouwen]
-    - *Reden: [Waarom is dit belangrijk voor je ontwikkeling?]*
+  - [Beschrijving van wat je wilt leren en bouwen]
+  - _Reden: [Waarom is dit belangrijk voor je ontwikkeling?]_
 
 ## Week 1
 
@@ -19,22 +19,23 @@
 
 #### Wat heb ik gedaan vandaag?
 
-| Activiteit | Duur |
-|------------|------|
-| Kick-off van het vak | 2 uur |
+| Activiteit                    | Duur  |
+| ----------------------------- | ----- |
+| Kick-off van het vak          | 2 uur |
 | Brainstormen over het project | 2 uur |
-| Basis gemaakt aan styling | 1 uur |
-| Getest met screenreader | 1 uur |
-| Pauze | 1 uur |
+| Basis gemaakt aan styling     | 1 uur |
+| Getest met screenreader       | 1 uur |
+| Pauze                         | 1 uur |
 
 #### Wat heb ik geleerd?
 
-* Als een date picker dd/mm/jjjj invoert, wordt er een percentage opgelezen, ik heb dit opgelost door de date picker input te veranderen naar de datum van vandaag
-* Hoe je een website toegankelijk kan maken voor een screenreader door middel van een sr-only class met styling
+- Als een date picker dd/mm/jjjj invoert, wordt er een percentage opgelezen, ik heb dit opgelost door de date picker input te veranderen naar de datum van vandaag
+- Hoe je een website toegankelijk kan maken voor een screenreader door middel van een sr-only class met styling
 
 ![Foto van dag 1](readmeImages/dag1.png)
 
 #### Wat ga ik morgen doen?
+
 - [x] Testen met de gebruiker
 - [ ] Aanpassingen doen op basis van feedback
 
@@ -42,14 +43,13 @@
 
 #### Testplan
 
-| Stap | Wat ik Roger laat doen | Waar ik op ga letten (Pijnpunten) |
-| :--- | :--- | :--- |
-| **1. Invoeren** | Ik laat hem een korte notitie toevoegen. | Worden alle velden (zoals 'Pagina' en 'Datum') duidelijk voor hem gelabeld en voorgelezen? |
-| **2. Opslaan** | Ik vraag hem op 'Opslaan' te drukken. | Krijgt hij feedback van de screenreader? Weet hij dat het gelukt is als de focus terugspringt? |
-| **3. Terugvinden** | Ik laat hem de notitie in de lijst zoeken. | Kan hij navigeren via koppen (`H`)? Wordt metadata logisch voor hem voorgelezen? |
+| Stap               | Wat ik Roger laat doen                     | Waar ik op ga letten (Pijnpunten)                                                              |
+| :----------------- | :----------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| **1. Invoeren**    | Ik laat hem een korte notitie toevoegen.   | Worden alle velden (zoals 'Pagina' en 'Datum') duidelijk voor hem gelabeld en voorgelezen?     |
+| **2. Opslaan**     | Ik vraag hem op 'Opslaan' te drukken.      | Krijgt hij feedback van de screenreader? Weet hij dat het gelukt is als de focus terugspringt? |
+| **3. Terugvinden** | Ik laat hem de notitie in de lijst zoeken. | Kan hij navigeren via koppen (`H`)? Wordt metadata logisch voor hem voorgelezen?               |
 
 #### Testresultaten
-
 
 - 📖 Geen idee welke pagina die zit in een boek.
 - 🌓 Prefereert dark mode
@@ -66,27 +66,30 @@
 
 #### Wat heb ik gedaan vandaag?
 
-| Activiteit | Duur |
-|------------|------|
-| Testen met Roger | 2 uur |
-| Voorlichting stage | 2 uur |
-| Weekly geek | 1,5 uur |
+| Activiteit         | Duur    |
+| ------------------ | ------- |
+| Testen met Roger   | 2 uur   |
+| Voorlichting stage | 2 uur   |
+| Weekly geek        | 1,5 uur |
 
 #### Wat heb ik geleerd?
 
-* 
+-
 
 #### Wat ga ik morgen doen?
+
 - [x] API
 
 ### Week 1 recap
 
 #### Wat heb ik deze week gedaan?
+
 Ik heb de basis gemaakt voor de website met basisfunctionaliteit voor een notitie opslaan, voor de rest heb ik kennis gemaakt met Roger en geleerd hoe hij omgaat met het web
 
 #### Belangrijkste leerpunten
-* Hij is niet helemaal blind
-* Prefereert dark mode
+
+- Hij is niet helemaal blind
+- Prefereert dark mode
 
 ---
 
@@ -96,19 +99,20 @@ Ik heb de basis gemaakt voor de website met basisfunctionaliteit voor een notiti
 
 #### Wat heb ik gedaan vandaag?
 
-| Activiteit | Duur |
-|------------|------|
-| Getest met Roger | 2 uur |
-| Weekly Geek | 1 uur |
+| Activiteit            | Duur  |
+| --------------------- | ----- |
+| Getest met Roger      | 2 uur |
+| Weekly Geek           | 1 uur |
 | Verbeteringen gemaakt | 5 uur |
 
 ![Foto van dag 2](readmeImages/dag2.png)
 
 #### Wat heb ik geleerd?
 
-* Roger vindt mijn prototype geweldig
+- Roger vindt mijn prototype geweldig
 
 #### Wat ga ik morgen doen?
+
 - [ ] API
 
 #### Testresultaten
@@ -117,12 +121,12 @@ Ik heb de basis gemaakt voor de website met basisfunctionaliteit voor een notiti
 - ⌨️ Tabben per alinea is goed
 - 🖊️ Moet notitie kunnen bewerken
 - 📌 Markering toevoegen per alinea waar een annotatie bij hoort
-- ⏭️ Na het maken van een notitie bij een stukje tekst door naar het volgende stuk tekstx§
-
+- ⏭️ Na het maken van een notitie bij een stukje tekst door naar het volgende stuk tekst
 
 ### Week 2 recap
 
 #### Wat heb ik deze week gedaan?
+
 Je kan nu per alinea tabben naar verschillende stukken tekst, dan kan je met enter een notitie maken bij een alinea. Deze notitie wordt dan opgeslagen en je kan deze later terugvinden in de notities sectie. Ook heb ik de website dark mode gemaakt en een aparte lettertype toegevoegd.
 
 ![Foto van dag 2](readmeImages/dag2.png)
@@ -130,51 +134,31 @@ Je kan nu per alinea tabben naar verschillende stukken tekst, dan kan je met ent
 Bij de feedback van vrijdag heb ik te horen gekregen dat de website meer persoonlijk kan, de reden dat hij soms over belangrijke elementen skipt is omdat het altijd gewoon dezelfde voiceover stem is die dezelfde saaie tekst vertelt.
 
 #### Belangrijkste leerpunten
-* Tabben per alinea werkt fantastisch
+
+- Tabben per alinea werkt fantastisch
 
 ---
 
-## Week 3 
+## Week 3
 
 ### Dag 1
 
-| Activiteit | Duur |
-|------------|------|
-| [Activiteit] | [Tijd] |
+#### Testresultaten
 
-#### Wat heb ik geleerd?
-
-* [Leerpunt]
-
-#### Wat ga ik morgen doen?
-- [ ] [Plan]
-
-### Dag 2
-
-| Activiteit | Duur |
-|------------|------|
-| [Activiteit] | [Tijd] |
-
-#### Wat heb ik geleerd?
-
-* [Leerpunt]
-
-#### Wat ga ik morgen doen?
-- [ ] [Plan]
-
-### Week 3 recap
-
-#### Belangrijkste leerpunten
-* [Punt]
+- 🔊 Instructies voor het maken van een notitie direct na de alinea zijn super duidelijk
+- 🔤 Het weghalen van de notitie-emoji zorgt voor een veel rustigere voorleeservaring
+- 🗣️ Een andere stem (of intonatie) voor notities/meldingen ten opzichte van gewone tekst helpt enorm
+- 🔄 Na het opslaan van een notitie is het prettig dat de focus logisch terugspringt
+- 🗑️ Snel kunnen verwijderen of bewerken van bestaande notities zonder de context kwijt te raken is gewenst
 
 ---
 
-## Week 4 
+## Week 4
 
 ### Dag 1
 
-| Activiteit | Duur |
-|------------|------|
+| Activiteit   | Duur   |
+| ------------ | ------ |
 | [Activiteit] | [Tijd] |
 
 ### Eindreflectie
@@ -188,14 +172,18 @@ Bij de feedback van vrijdag heb ik te horen gekregen dat de website meer persoon
 ## Bronnen en AI-verantwoording
 
 ### Externe bronnen
+
 - [Bron 1]
 - [Bron 2]
 
 ### AI-gebruik
+
 - [AI tool (bijv. GitHub Copilot, ChatGPT)]
 
 ### Verantwoording AI-gebruik
+
 [Leg hier uit hoe en waarom je AI hebt gebruikt tijdens dit project.]
+
 - [Punt 1]
 - [Punt 2]
 - [Punt 3]

@@ -65,7 +65,10 @@ function focusNotes() {
 
 function setParagraphState(el, isActive = false) {
   activeParagraphId = el.id;
-  activeParagraphNumber = el.querySelector(".para-number").textContent;
+  activeParagraphNumber = el
+    .querySelector(".para-number")
+    .textContent.replace("📝", "")
+    .trim();
 
   if (isActive) {
     paragraphs.forEach((p) => {
@@ -74,12 +77,12 @@ function setParagraphState(el, isActive = false) {
     });
     el.classList.add("is-active");
     el.setAttribute("aria-selected", "true");
-    activeParaLabel.textContent = `Alinea ${activeParagraphNumber} geselecteerd`;
+    activeParaLabel.textContent = `Je schrijft nu voor alinea ${activeParagraphNumber} ✍️`;
     noteTextarea.focus();
   } else {
     paragraphs.forEach((p) => p.classList.remove("is-focused"));
     el.classList.add("is-focused");
-    activeParaLabel.textContent = `Alinea ${activeParagraphNumber} in focus — druk Enter om een notitie te maken`;
+    activeParaLabel.textContent = `Alinea ${activeParagraphNumber}`;
   }
 }
 
@@ -237,7 +240,7 @@ form?.addEventListener("submit", (e) => {
   updateNoteIndicators();
   newNote.scrollIntoView({ behavior: "instant", block: "nearest" });
   noteTextarea.value = "";
-  
+
   // Go to next paragraph automatically
   if (activeParagraphId) {
     const currentEl = document.getElementById(activeParagraphId);
@@ -250,4 +253,3 @@ form?.addEventListener("submit", (e) => {
   }
   returnToText();
 });
-
