@@ -5,56 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutorial — Socrates</title>
     <link rel="stylesheet" href="style.css" />
-    <style>
-      .tutorial-overlay {
-        position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--primary);
-        color: var(--surface);
-        padding: 1.5rem 2.5rem;
-        font-weight: 700;
-        z-index: 1000;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        text-align: center;
-        font-family: var(--font-body);
-        font-size: 1.25rem;
-        border: 4px solid var(--on-surface);
-        transition: transform 0.3s ease;
-      }
-      .tutorial-overlay kbd {
-        background: var(--surface);
-        color: var(--primary);
-        padding: 0.2em 0.5em;
-        border-radius: 4px;
-      }
-      .dimmed {
-        opacity: 0.3;
-        pointer-events: none;
-        user-select: none;
-        transition: opacity 0.3s ease;
-      }
-      /* Prevent clicking anywhere to bypass */
-      body.tutorial-active .paragraph-item {
-        pointer-events: none; /* Only keyboard navigation */
-      }
-      .tutorial-actions {
-        margin-top: 1rem;
-      }
-      .skip-btn {
-        background: transparent;
-        border: none;
-        color: var(--surface);
-        text-decoration: underline;
-        cursor: pointer;
-        font-size: 0.8rem;
-        margin-top: 0.5rem;
-        font-family: var(--font-body);
-      }
-    </style>
   </head>
   <body class="tutorial-active">
+
+    <div class="sr-only" aria-live="polite">
+      <h1>Tutorial Socrates</h1>
+      <p>
+        Welkom bij de interactieve tutorial van Socrates. Deze gids helpt je stap voor stap om te leren hoe je notities per alinea kunt maken. 
+        Ik zal je door de stappen praten. Luister naar de instructies die steeds onderaan verschijnen.
+      </p>
+    </div>
 
     <main id="main-content">
       <!-- ═══════════════════════════════════════════════
@@ -137,7 +97,7 @@
       </aside>
     </main>
 
-    <div id="tutorial-overlay" class="tutorial-overlay" role="status" aria-live="polite" aria-atomic="true">
+    <div id="tutorial-overlay" class="tutorial-overlay" role="alert" aria-live="assertive" aria-atomic="true">
       <p id="tutorial-message">Laten we beginnen! Druk op <kbd>Tab</kbd> om de eerste alinea te selecteren.</p>
     </div>
 

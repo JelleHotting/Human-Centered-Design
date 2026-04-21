@@ -11,17 +11,8 @@ const notesContainer = document.querySelector(".notes-container");
 const notesEmptyMsg = document.getElementById("notes-empty");
 
 // ─── Helpers ───────────────────────────────────────────────────────────
-function updateEmptyState() {
-  const hasNotes = notesContainer.querySelector("article") !== null;
-  notesEmptyMsg.hidden = hasNotes;
-}
 
 function updateNoteIndicators() {
-  paragraphs.forEach((p) => {
-    const existing = p.querySelector(".note-indicator");
-    if (existing) existing.remove();
-  });
-
   const notes = document.querySelectorAll(".note");
   const paragraphsWithNotes = new Set();
   notes.forEach((note) => {
@@ -30,16 +21,10 @@ function updateNoteIndicators() {
     }
   });
 
-  paragraphsWithNotes.forEach((paraId) => {
-    const p = document.getElementById(paraId);
-    if (p) {
-      const numSpan = p.querySelector(".para-number");
-      if (numSpan && !p.querySelector(".note-indicator")) {
-        numSpan.insertAdjacentHTML(
-          "beforeend",
-          '<span class="note-indicator" aria-hidden="true" style="margin-left: 6px;" title="Heeft notitie(s)">📝</span>',
-        );
-      }
+  paragraphs.forEach((p) => {
+    const numSpan = p.querySelector(".para-number");
+    if (numSpan) {
+      numSpan.dataset.hasNotes = paragraphsWithNotes.has(p.id);
     }
   });
 }
@@ -67,8 +52,7 @@ function setParagraphState(el, isActive = false) {
   activeParagraphId = el.id;
   activeParagraphNumber = el
     .querySelector(".para-number")
-    .textContent.replace("📝", "")
-    .trim();
+    .textContent.trim();
 
   if (isActive) {
     paragraphs.forEach((p) => {
@@ -231,12 +215,10 @@ form?.addEventListener("submit", (e) => {
 
   newNote.querySelector(".note-delete-btn").addEventListener("click", () => {
     newNote.remove();
-    updateEmptyState();
     updateNoteIndicators();
   });
 
   notesContainer.appendChild(newNote);
-  updateEmptyState();
   updateNoteIndicators();
   newNote.scrollIntoView({ behavior: "instant", block: "nearest" });
   noteTextarea.value = "";

@@ -19,8 +19,11 @@ const form = document.getElementById("note-form");
 const activeParaLabel = document.getElementById("active-para-label");
 
 function updateTutorialMessage(msg) {
+  // We use textContent for the SR to avoid reading HTML tags, but innerHTML for the visual kbd tags.
+  // The alert role on the container will handle the announcement.
   tutorialMessage.innerHTML = msg;
-  // Klein animatietje
+  
+  // Klein animatietje voor visuele feedback
   tutorialMessage.parentElement.style.transform = 'translate(-50%, 10px)';
   setTimeout(() => {
     tutorialMessage.parentElement.style.transform = 'translate(-50%, 0)';
@@ -29,78 +32,109 @@ function updateTutorialMessage(msg) {
 
 // ─── Initialization ───────────────────────────────────────────────────────────
 readingPane.classList.remove("dimmed");
+readingPane.removeAttribute("aria-hidden");
+
+// Initially hide other sections from SR
+formSection.setAttribute("aria-hidden", "true");
+notesContainer.setAttribute("aria-hidden", "true");
+
 noteArea.disabled = true;
 submitBtn.disabled = true;
 
-// Clicks worden nu via CSS en inert afgehandeld.
+// ─── Phase Transitions ────────────────────────────────────────────────────────
+function startPhase2() {
+  if (currentPhase !== 1) return;
+  paragraph.classList.add("is-focused");
+  paragraph.setAttribute("aria-label", "Alinea 1. Geselecteerd. Druk op Enter om een notitie te maken.");
+  currentPhase = 2;
+  updateTutorialMessage("Goed zo! De alinea is nu geselecteerd. Druk op <kbd>Enter</kbd> om een notitie te maken.");
+}
+
+function startPhase3() {
+  if (currentPhase !== 2) return;
+  paragraph.classList.add("is-active");
+  paragraph.removeAttribute("aria-label"); 
+  
+  activeParaLabel.textContent = "Je schrijft nu voor alinea 1 ✍️";
+  
+  formSection.classList.remove("dimmed");
+  formSection.removeAttribute("inert");
+  formSection.removeAttribute("aria-hidden");
+  
+  readingPane.setAttribute("aria-hidden", "true");
+  
+  noteArea.disabled = false;
+  submitBtn.disabled = false;
+  
+  noteArea.focus();
+  currentPhase = 3;
+  updateTutorialMessage("Perfect! Het tekstvak is nu actief. Typ een korte notitie en druk op <kbd>Enter</kbd> om op te slaan.");
+}
+
+// ─── Event Listeners ──────────────────────────────────────────────────────────
+paragraph.addEventListener("focus", startPhase2);
+paragraph.addEventListener("click", () => {
+    if (currentPhase === 1) startPhase2();
+    else if (currentPhase === 2) startPhase3();
+});
 
 // ─── Keydown Locks & Logic ────────────────────────────────────────────────────
 document.addEventListener("keydown", (e) => {
   
   if (currentPhase === 1) {
-    // Check op pure navigatie flow. We blokkeren niet randzaken die de SR nodig heeft.
     if (e.key === "Tab") {
       e.preventDefault();
-      paragraph.focus();
-      paragraph.classList.add("is-focused");
-      currentPhase = 2;
-      updateTutorialMessage("Goed zo! Nu je de alinea in focus hebt, druk op <kbd>Enter</kbd> om een notitie te maken.");
+      paragraph.focus(); // Triggers startPhase2 via focus event
+    } else if (e.key === "Enter") {
+        e.preventDefault();
+        startPhase2();
+        // Optioneel: direct door naar phase 3? Nee, volg de tutorial stappen.
     }
     return;
   }
 
   if (currentPhase === 2) {
-    // We are focused on paragraph. Only allow Enter for action, Tab is trapped
     if (e.key === "Tab") {
-        e.preventDefault(); // restrict moving away
+        e.preventDefault(); 
     } else if (e.key === "Enter") {
       e.preventDefault();
-      paragraph.classList.add("is-active");
-      activeParaLabel.textContent = "Je schrijft nu voor alinea 1 ✍️";
-      
-      formSection.classList.remove("dimmed");
-      formSection.removeAttribute("inert");
-      noteArea.disabled = false;
-      submitBtn.disabled = false;
-      
-      noteArea.focus();
-      currentPhase = 3;
-      updateTutorialMessage("Perfect! Typ een korte test-notitie in het tekstvak en druk op <kbd>Enter</kbd> om op te slaan.");
+      startPhase3();
     }
     return;
   }
 
   if (currentPhase === 3) {
-    // User is in textarea. Allow typing. Enter submits.
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       submitBtn.click();
     } else if (e.key === "Tab" || e.key === "Escape") {
-      e.preventDefault(); // Lock them in textarea for tutorial
+      e.preventDefault(); 
     }
     return;
   }
 
   if (currentPhase === 4) {
-    // Waiting for 'n' or 'N'
     if (e.key.toLowerCase() === "n") {
       e.preventDefault();
+      
+      // Unlock Notes for SR
       notesContainer.classList.remove("dimmed");
       notesContainer.removeAttribute("inert");
-      document.getElementById("notes-title").focus();
-      currentPhase = 5;
+      notesContainer.removeAttribute("aria-hidden");
       
-      // End of tutorial
-      updateTutorialMessage('Geweldig! Je kent nu de basis. <br><br> <span style="font-size: 0.9rem; font-weight: normal;">Je wordt automatisch doorgestuurd... (of druk op <kbd>Enter</kbd>)</span>');
+      // Focus the title of notes
+      const notesTitle = document.getElementById("notes-title");
+      notesTitle.focus();
+      
+      currentPhase = 5;
+      updateTutorialMessage('Geweldig! Je hebt je eerste notitie bekeken. Je kent nu de basis. <br><br> <span style="font-size: 0.9rem; font-weight: normal;">Je wordt nu doorgestuurd naar de echte tekst...</span>');
       
       const skipBtn = document.querySelector('.skip-btn');
       if(skipBtn) skipBtn.remove();
 
-      // Automatische tijds-redirect
       window.tutorialRedirectTimeout = setTimeout(() => {
         window.location.href = 'lezen.html';
-      }, 3500);
-
+      }, 4000);
     }
     return;
   }
@@ -123,22 +157,30 @@ form.addEventListener("submit", (e) => {
   // Create dummy note visually
   const dummyNote = document.createElement("article");
   dummyNote.className = "note";
+  dummyNote.setAttribute("role", "listitem");
   dummyNote.innerHTML = `
     <header class="note-header"><h3 class="note-para-label">Alinea 1</h3></header>
     <div class="note-content-container"><p class="note-content">${content}</p></div>
   `;
-  document.getElementById("notes-empty").hidden = true;
   notesContainer.appendChild(dummyNote);
   
   noteArea.value = "";
   noteArea.disabled = true;
   submitBtn.disabled = true;
+  
+  // Visual dim and SR lock for form
   formSection.classList.add("dimmed");
   formSection.setAttribute("inert", "");
+  formSection.setAttribute("aria-hidden", "true");
+  
+  // Re-enable reading pane visually (keep it dimmed or not?)
+  // User wants to keep dimmed text, so let's keep reading pane active for SR but visually still "tutorial style"
+  readingPane.removeAttribute("aria-hidden");
+  
   paragraph.classList.remove("is-active");
   paragraph.classList.remove("is-focused");
   paragraph.blur();
 
   currentPhase = 4;
-  updateTutorialMessage("Opgeslagen! Druk nu ergens op <kbd>N</kbd> om snel naar je notities te springen.");
+  updateTutorialMessage("Notitie opgeslagen! De tekst is weer beschikbaar. Druk nu op de letter <kbd>N</kbd> om naar je opgeslagen notities te gaan.");
 });
