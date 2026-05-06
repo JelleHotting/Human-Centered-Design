@@ -1,4 +1,4 @@
-![Banner](readme/image.png)
+![Banner](readmeImages/image.png)
 
 > [!WARNING]
 > Dit project is gemaakt voor een (half) blind persoon, de opdracht was om het alleen werkend te krijgen voor specifiek diegene.
