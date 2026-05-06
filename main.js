@@ -16,6 +16,7 @@ function updateNoteIndicators() {
   const notes = document.querySelectorAll(".note");
   const paragraphsWithNotes = new Set();
   notes.forEach((note) => {
+    // MDN Docs: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
     if (note.dataset.paraId) {
       paragraphsWithNotes.add(note.dataset.paraId);
     }
@@ -64,7 +65,10 @@ function setParagraphState(el, isActive = false) {
     activeParaLabel.textContent = `Je schrijft nu voor alinea ${activeParagraphNumber} ✍️`;
     noteTextarea.focus();
   } else {
-    paragraphs.forEach((p) => p.classList.remove("is-focused"));
+    paragraphs.forEach((p) => {
+      p.classList.remove("is-active", "is-focused");
+      p.setAttribute("aria-selected", "false");
+    });
     el.classList.add("is-focused");
     activeParaLabel.textContent = `Alinea ${activeParagraphNumber}`;
   }
@@ -112,12 +116,18 @@ document.getElementById("cancel-note")?.addEventListener("click", returnToText);
 document.getElementById("go-to-notes")?.addEventListener("click", focusNotes);
 
 // ─── Form Submission ──────────────────────────────────────────────────────────
+/**
+ * Bronvermelding (APA):
+ * Google. (2026). Google Antigravity [Groot taalmodel]. https://gemini.google.com
+ * Prompt: "Ik wil notities opslaan, bewerken en verwijderen, maar de screenreader focus raakt telkens verdwaald als ik op opslaan klik. Hoe fix ik deze logica?"
+ */
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
   const noteContent = noteTextarea.value.trim();
 
   if (!noteContent) {
     noteTextarea.focus();
+    // MDN Docs: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid
     noteTextarea.setAttribute("aria-invalid", "true");
     return;
   }
@@ -220,8 +230,15 @@ form?.addEventListener("submit", (e) => {
 
   notesContainer.appendChild(newNote);
   updateNoteIndicators();
+  // MDN Docs: https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
   newNote.scrollIntoView({ behavior: "instant", block: "nearest" });
   noteTextarea.value = "";
+
+  const srLive = document.getElementById("sr-live");
+  if (srLive) {
+    srLive.textContent = "Notitie opgeslagen.";
+    setTimeout(() => { if (srLive.textContent === "Notitie opgeslagen.") srLive.textContent = ""; }, 3000);
+  }
 
   // Go to next paragraph automatically
   if (activeParagraphId) {
@@ -229,7 +246,7 @@ form?.addEventListener("submit", (e) => {
     const currentIndex = Array.from(paragraphs).indexOf(currentEl);
     if (currentIndex !== -1 && currentIndex + 1 < paragraphs.length) {
       const nextEl = paragraphs[currentIndex + 1];
-      setParagraphState(nextEl, true);
+      nextEl.focus();
       return;
     }
   }

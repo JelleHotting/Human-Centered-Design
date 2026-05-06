@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="tutorial-active">
-
     <div class="sr-only" aria-live="polite">
       <h1>Tutorial Socrates</h1>
       <p>
-        Welkom bij de interactieve tutorial van Socrates. Deze gids helpt je stap voor stap om te leren hoe je notities per alinea kunt maken. 
-        Ik zal je door de stappen praten. Luister naar de instructies die steeds onderaan verschijnen.
+        Welkom bij de interactieve tutorial van Socrates. Deze gids helpt je
+        stap voor stap om te leren hoe je notities per alinea kunt maken. Ik zal
+        je door de stappen praten. Luister naar de instructies die steeds
+        onderaan verschijnen.
       </p>
     </div>
 
@@ -20,30 +21,29 @@
       <!-- ═══════════════════════════════════════════════
            LEFT COLUMN — Reading pane
       ═══════════════════════════════════════════════ -->
-      <section class="reading-pane dimmed" id="tut-reading-pane" aria-labelledby="reading-title">
+      <section
+        class="reading-pane dimmed"
+        id="tut-reading-pane"
+        aria-labelledby="reading-title"
+      >
         <header class="book-header">
-          <h1 id="reading-title" class="book-title">
-            Welkom bij Socrates
-          </h1>
-          <p class="book-meta">
-            Interactieve Tutorial
-          </p>
+          <h1 id="reading-title" class="book-title">Welkom bij Socrates</h1>
+          <p class="book-meta">Interactieve Tutorial</p>
         </header>
 
         <ol class="paragraphs-list" aria-label="Alinea's van de tekst">
           <li class="paragraph-item" tabindex="0" id="para-1">
             <span class="para-number" aria-hidden="true">1</span>
             <p>
-              Je staat op het punt om een nieuwe manier van lezen te ontdekken. 
-              Hier maak je aantekeningen niet naast de tekst, maar direct per alinea. 
-              Zo blijft je context altijd bewaard en kun je dieper nadenken over wat je leest.
+              Je staat op het punt om een nieuwe manier van lezen te ontdekken.
+              Hier maak je aantekeningen niet naast de tekst, maar direct per
+              alinea. Zo blijft je context altijd bewaard en kun je dieper
+              nadenken over wat je leest.
             </p>
           </li>
         </ol>
 
-        <p class="reading-hint" id="reading-hint">
-          Tutorial modus is actief.
-        </p>
+        <p class="reading-hint" id="reading-hint">Tutorial modus is actief.</p>
       </section>
 
       <aside class="apparatus-zone">
@@ -67,7 +67,12 @@
         <!-- ═══════════════════════════════════════════════
              RIGHT COLUMN — Note form
         ═══════════════════════════════════════════════ -->
-        <section class="form-section dimmed" id="tut-form-section" aria-labelledby="form-title" inert>
+        <section
+          class="form-section dimmed"
+          id="tut-form-section"
+          aria-labelledby="form-title"
+          inert
+        >
           <h2 id="form-title">Nieuwe notitie</h2>
           <p class="active-para-label" id="active-para-label">
             Geen alinea geselecteerd
@@ -97,8 +102,17 @@
       </aside>
     </main>
 
-    <div id="tutorial-overlay" class="tutorial-overlay" role="alert" aria-live="assertive" aria-atomic="true">
-      <p id="tutorial-message">Laten we beginnen! Druk op <kbd>Tab</kbd> om de eerste alinea te selecteren.</p>
+    <div
+      id="tutorial-overlay"
+      class="tutorial-overlay"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <p id="tutorial-message">
+        Laten we beginnen! Druk op <kbd>Tab</kbd> om de eerste alinea te
+        selecteren.
+      </p>
     </div>
 
     <script defer src="tutorial.js"></script>
